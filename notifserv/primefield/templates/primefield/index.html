@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+<h1>Добавить рассылку:</h1>
+
+<form action="/" method="post">
+    {% csrf_token %}
+    {% for field in form2 %}
+    <div class="form-group">
+
+        {{ field.label_tag }}
+
+        {{ field }}
+
+        <div class="invalid-feedback">
+            {{ field.errors }}
+        </div>
+    </div>
+
+    {% endfor %}
+    <button type="submit" class="btn btn-primery">Добавить рассылку</button>
+
+</form>
+
+<h1>Добавить клиента:</h1>
+
+<form action="/" method="post">
+    {% csrf_token %}
+       {% for field in form1 %}
+    <div class="form-group">
+
+        {{ field.label_tag }}
+
+        {{ field }}
+
+        <div class="invalid-feedback">
+            {{ field.errors }}
+        </div>
+    </div>
+
+    {% endfor %}
+    <button type="submit" class="btn btn-primery">Добавить клиента</button>
+
+</form>
+
+<h1>{{ title }}</h1>
+
+{%  for item in clients %}
+    <div>
+        <p>Телефон: 7{{ item.phone }}</p>
+        <p>Код: {{ item.code_operator }}</p>
+        <p>Тег: {{ item.teg }}</p>
+    </div>
+    <hr>
+{% endfor %}
+
+</body>
+</html>
