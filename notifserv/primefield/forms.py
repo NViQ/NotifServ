@@ -16,7 +16,7 @@ class MailingForm(forms.ModelForm):
     class Meta:
         model = Mailing
         fields = (
-            'start_mailing', 'finish_mailing', 'text_message')
+            'finish_mailing', 'start_mailing', 'text_message')
         widgets = {
             'text_message': forms.Textarea(attrs={'class': 'form-control', 'rows': 2}),
         }

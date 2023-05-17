@@ -47,7 +47,7 @@ class Client(APIView):
         clients = Clients.objects.all().values()
         context = {
             'clients': list(clients),
-            'title': 'Клиенты',
+            'title': 'клиенты',
         }
         return HttpResponse(content=json.dumps(context, cls=DjangoJSONEncoder))
 
